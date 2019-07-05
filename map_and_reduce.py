@@ -1,5 +1,5 @@
-#map(): 通过list()函数让它把整个序列都计算出来并返回一个list
-#reduce(fn,element)把fn的结果继续和序列的下一个元素做累积计算
+#map(func,iterable): 通过list()函数让它把整个序列都计算出来并返回一个list
+#reduce(func,iterable)把fn的结果继续和序列的下一个元素做累积计算
 
 #练习1: 利用map()函数，把用户输入的不规范的英文名字，变为首字母大写，其他小写的规范名字。输入：['adam', 'LISA', 'barT']，输出：['Adam', 'Lisa', 'Bart']
 
