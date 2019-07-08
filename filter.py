@@ -5,7 +5,7 @@
 
 def is_palindrome(n):
 	nn=str(n)
-	return nn==nn[::-1]
+	return nn==nn[::-1] #[::-1] reverse 序列
 
 	
 # 测试:
