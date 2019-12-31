@@ -17,8 +17,9 @@ def main():
     result_list = [0] * 11
     # 两个骰子的点数和列表
     roll_list = list(range(2, 13))
-    roll_dict = dict(zip(roll_list, result_list))
     # zip 将对应的点数和次数关联起来
+    roll_dict = dict(zip(roll_list, result_list))
+
     for i in range(total_times):
         dice1 = roll_dice()
         dice2 = roll_dice()
