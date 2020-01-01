@@ -29,9 +29,9 @@ def main():
 
     # 绘制散点图
     plt.hist(roll_list, bins=range(2, 14), edgecolor='black', linewidth=1, alpha=0.75, density=1)
-    plt.title = '骰子点数统计'
-    # plt.xlabel = '点数'
-    # plt.ylabel = '频率'
+    plt.title( '骰子点数统计')
+    plt.xlabel('点数')
+    plt.ylabel('频率')
     plt.show()
 
 
