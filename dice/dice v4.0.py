@@ -27,7 +27,7 @@ def main():
         dice2 = roll_dice()
         roll_list.append(dice1 + dice2)
 
-    # 绘制散点图
+    # 绘制直方图
     plt.hist(roll_list, bins=range(2, 14), edgecolor='black', linewidth=1, alpha=0.75, density=1)
     plt.title( '骰子点数统计')
     plt.xlabel('点数')
