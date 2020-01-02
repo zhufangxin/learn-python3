@@ -3,7 +3,7 @@
 版本：v1.0
 """
 
-
+global iaqi
 def call_linear(iaqi_lo, iaqi_hi, bp_lo, bp_hi, cp):
     iaqi = (iaqi_hi - iaqi_lo) * (cp - bp_lo) / (bp_hi - bp_lo) + iaqi_lo
     return iaqi
@@ -22,7 +22,6 @@ def cal_pm_value(pm_value):
 
 
 def cal_co_value(co_value):
-    global iaqi
     if 0 <= co_value < 3:
         iaqi = call_linear(0, 50, 0, 2, co_value)
     elif 3 <= co_value < 5:
@@ -42,7 +41,8 @@ def cal_aqi(cal_list):
     result_list = []
     result_list.append(pm_aqi)
     result_list.append(co_aqi)
-    return result_list
+    aqi = max(result_list)
+    return aqi
 
 
 def main():
@@ -54,8 +54,7 @@ def main():
     cal_list = []
     cal_list.append(pm_value)
     cal_list.append(co_value)
-    aqi_result_list = cal_aqi(cal_list)
-    aqi = max(aqi_result_list)
+    aqi = cal_aqi(cal_list)
     print('空气质量为{}'.format(aqi))
 
 
