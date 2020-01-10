@@ -11,7 +11,7 @@ import requests
 
 
 def get_html_text(url):
-    r = requests.get(url)
+    r = requests.get(url, timeout=30)
     return r.text
 
 
