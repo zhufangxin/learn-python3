@@ -1,0 +1,37 @@
+[
+  {
+    "aqi": 56,
+    "area": "the great wall",
+    "level": 1
+  },
+  {
+    "aqi": 77,
+    "area": "san li tun",
+    "level": 2
+  },
+  {
+    "aqi": 31,
+    "area": "hou hai",
+    "level": 4
+  },
+  {
+    "aqi": 96,
+    "area": "test11",
+    "level": 6
+  },
+  {
+    "aqi": 36,
+    "area": "test22",
+    "level": 1
+  },
+  {
+    "aqi": 67,
+    "area": "test33",
+    "level": 2
+  },
+  {
+    "aqi": 41,
+    "area": "test44",
+    "level": 2
+  }
+]
