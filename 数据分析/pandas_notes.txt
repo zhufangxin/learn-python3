@@ -1,0 +1,74 @@
+import pandas as pd
+from pandas import Series, DataFrame
+
+1. Series
+#Series 可以看成是带索引的一维数组
+s=Series(["a","b","c","d"])
+#默认情况下，创建一个Series时会自动添加数字形式的索引
+#可以加入index参数来指定索引
+s=Series(["a","b","c","d"],index=[1,2,3,4])
+#有两个属性,一个是values,一个是index
+s.index
+s.values
+
+#Series同样支持索引和切片
+s=Series(np.arange(5),index=["a","b","c","d","e"])
+s["a"]=9 #同样可以通过索引对series中的值进行修改
+s[["a","b","c"]]  #通过多个索引取值
+s[["a","b","c"]]=1  #给多个值赋值
+s[s>3]  #获取s中所有大于3的值，使用布尔索引
+#可以对Series中的值进行运算
+s*2  #s中的每个值都*2
+
+#可以使用字典来创建Series,此时字典的key变成Series的index,字典的value变成series的value
+data = {"beijing":2000,"shanghai":300,"shenzhen":2000}
+s=Series(data)
+#如果使用字典来创建Series,并且加入了index参数，那么该series的索引以index参数为准
+s=Series(data, index=["beijing","shanghai","hangzhou"])  #hangzhou NaN （Not a number）
+#获取s中内容为空的值，使用布尔索引
+s[pd.isnull(s)]
+#获取s中内容不为空的值
+s[pd.notnull(s)]
+#将s中所有的空值改为0  使用布尔索引
+s[pd.isnull(s)]=0
+
+#Series之间也可以进行计算,前提是要有相同的index
+data1={"beijing":2000,"guiyang":300,"shanghai":2000}
+data2={"beijing":3000,"guiyang":400,"shanghai":4000}
+s1=Series(data1)
+s2=Series(data2)
+s1+s2
+
+2.DataFrame 其实就是二维表
+结构化数据  非结构化数据  半结构化数据
+
+data={"city":["北京","北京","贵阳","贵阳","上海","深圳"],"year":[2017,2018,2017,2018,2018,2019],
+"people":[2000,2100,400,500,2000,1500]}
+df=DataFrame(data)
+
+df.columns  #获取所有的列名
+df.info()   #获取每一列的信息
+df.shape    #DataFrame的结构
+建立一个4×2的矩阵c, c.shape[1] 为第一维的长度，c.shape[0] 为第二维的长度。
+
+#在创建dataframe时还可以通过columns, index来指定列名及索引
+df=DataFrame(data,columns=["city","year","people"],index=["one","two","three","four","five","six"])
+#假如在创建时，columns参数指定的列与字典中没有匹配项，那么会保留该列名，并且值为空值NaN
+
+#通过索引可以获取DataFrame中的值
+#根据列选取
+df["city"]
+#选取多列返回一个DataFrame
+df[["city","year"]]
+#通过索引赋值
+df["dept"]=1
+df["dept"]=[1,2,3,4,5,6]
+
+#根据行选取内容
+df.loc["one"]
+
+#指定行和列
+df.loc[["one","two"],["city","year","people"]]
+
+#如果想根据行和列的次序来选取内容，可以用iloc
+df.iloc[0:3,0:2]
